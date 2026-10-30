@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2a0a12">
+<title>Regis Motta — Um Natal para sentir</title>
+<meta name="description" content="Decoração natalina com personalidade. Conheça os projetos de Regis Motta: árvores, guirlandas, restauração e locação para casas e empresas.">
+<meta property="og:title" content="Regis Motta — Um Natal para sentir">
+<meta property="og:description" content="Mais do que decorar. Criar a sensação de estar no Natal.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%233a0f19'/%3E%3Cpath d='M50 14c3 22 14 33 36 36-22 3-33 14-36 36-3-22-14-33-36-36 22-3 33-14 36-36z' fill='%23d9b977'/%3E%3C/svg%3E">
+<link rel="preload" as="font" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/arvore-03.webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>(function(d){var h=d.documentElement;h.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('has-motion');setTimeout(function(){if(!window.__regisReady){h.classList.remove('has-motion');}},4500);}})(document);</script>
+<script src="assets/js/vendor/gsap.min.js" defer></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/vendor/lenis.min.js" defer></script>
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body>
+
+<!-- SVG reutilizável: estrela de quatro pontas -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 100 100"><path d="M50 0c3.6 27.6 18.4 42.4 50 50-31.6 7.6-46.4 22.4-50 50-3.6-27.6-18.4-42.4-50-50C31.6 42.4 46.4 27.6 50 0z"/></symbol>
+</svg>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Abertura -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-panel loader-panel--top"></div>
+  <div class="loader-panel loader-panel--bottom"></div>
+  <div class="loader-inner">
+    <svg class="loader-star"><use href="#star"/></svg>
+    <span class="loader-count"><span id="loader-num">00</span></span>
+    <span class="loader-text">Acendendo o seu Natal</span>
+  </div>
+</div>
+
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"><span class="cursor-label">Ver</span></div></div>
+
+<header id="header">
+  <a class="brand" href="#inicio" aria-label="Regis Motta — início">Regis Motta<span>DECORAÇÕES NATALINAS</span></a>
+  <nav aria-label="Principal" id="nav">
+    <a href="#universo"><span class="nav-i">01</span>O nosso olhar</a>
+    <a href="#projetos"><span class="nav-i">02</span>Projetos</a>
+    <a href="#servicos"><span class="nav-i">03</span>O que fazemos</a>
+    <a class="nav-cta magnetic" href="#seu-natal">Vamos criar seu Natal <span>↗</span></a>
+  </nav>
+  <button id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><i></i><i></i></button>
+</header>
+
+<main id="conteudo">
+
+<!-- HERO -->
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="sparkles" aria-hidden="true"></canvas>
+
+  <div class="hero-copy">
+    <p class="eyebrow hero-eyebrow"><svg class="i-star"><use href="#star"/></svg> UM CONVITE AO EXTRAORDINÁRIO</p>
+    <h1 id="hero-title">
+      <span class="ln"><span>O Natal começa</span></span>
+      <span class="ln"><span>com um <em>sentir.</em></span></span>
+    </h1>
+    <p class="hero-description">A luz que acolhe. O detalhe que emociona.<br>O seu espaço, vestido de memórias.</p>
+    <div class="hero-actions">
+      <a class="button gold magnetic" href="#projetos"><span class="button-label">Entre no nosso Natal</span> <span class="button-icon">↗</span></a>
+      <button id="sound" class="sound" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-label">Ativar som</span></button>
+    </div>
+    <div class="hero-signature"><span class="line"></span><span>Decoração com alma. Por Regis Motta.</span></div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="arch-outline"></div>
+    <div class="hero-photo">
+      <img src="assets/img/arvore-03.webp" alt="Árvore de Natal criada por Regis Motta com laços vermelhos e luzes douradas" fetchpriority="high" width="1200" height="1600">
+      <div class="photo-shade"></div>
+      <div class="fairy-lights" aria-hidden="true"></div>
+      <div class="photo-caption"><span>O ENCANTO MORA NOS DETALHES</span><span>01 / 06</span></div>
+    </div>
+    <svg class="orbit-star" aria-hidden="true"><use href="#star"/></svg>
+    <svg class="orbit-star orbit-star--small" aria-hidden="true"><use href="#star"/></svg>
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="seal-path" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0"/></defs>
+        <text><textPath href="#seal-path">UM NATAL PARA SENTIR · REGIS MOTTA · DECORAÇÃO COM ALMA ·</textPath></text></svg>
+      <svg class="seal-star"><use href="#star"/></svg>
+    </div>
+    <button id="lights" class="light-switch magnetic" aria-pressed="true"><svg class="bulb"><use href="#star"/></svg><span id="light-label">O Natal está aceso</span><span class="toggle-track"><i></i></span></button>
+  </div>
+
+  <div class="hero-bottom">
+    <a href="#universo" class="scroll-cue"><span class="scroll-line"><i></i></span>ROLE PARA SENTIR</a>
+    <span>PROJETOS AUTORAIS · INTERIORES &amp; EXTERIORES</span>
+  </div>
+</section>
+
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <div class="ribbon-row">O encanto de receber <svg><use href="#star"/></svg> A beleza de celebrar <svg><use href="#star"/></svg> A arte de transformar <svg><use href="#star"/></svg>&nbsp;</div>
+    <div class="ribbon-row">O encanto de receber <svg><use href="#star"/></svg> A beleza de celebrar <svg><use href="#star"/></svg> A arte de transformar <svg><use href="#star"/></svg>&nbsp;</div>
+  </div>
+</div>
+
+<!-- 01 · O NOSSO OLHAR -->
+<section class="intro section" id="universo">
+  <div class="section-top reveal"><span class="eyebrow">01 / O NOSSO OLHAR</span><svg class="mini-star"><use href="#star"/></svg></div>
+  <div class="intro-grid">
+    <h2 class="intro-title" data-fill>Há lugares que<br>a gente visita.<br><em>E lugares que<br>a gente sente.</em></h2>
+    <div class="intro-right">
+      <p class="lead reveal">O Natal tem esse poder.<br>De transformar espaços em sentimentos.</p>
+      <p class="reveal">Uma árvore que reúne. Uma entrada que abraça. Um pequeno detalhe que faz os olhos brilharem. É essa atmosfera que buscamos em cada composição.</p>
+      <p class="reveal">Há 23 anos, Regis Motta combina cores, texturas e luz para criar decorações que carregam a personalidade de quem vive o espaço.</p>
+      <a class="text-link reveal" href="#sobre">Conheça quem cria essa magia <span>↗</span></a>
+    </div>
+  </div>
+  <div class="intro-collage" aria-hidden="true">
+    <figure class="collage-a" data-speed="-0.12"><img src="assets/img/guirlanda-01.webp" alt="" loading="lazy" width="1280" height="1707"></figure>
+    <figure class="collage-b" data-speed="0.1"><img src="assets/img/arvore-04.webp" alt="" loading="lazy" width="900" height="1600"></figure>
+  </div>
+  <div class="intro-foot reveal"><span>FEITO COM TEMPO, CUIDADO E INTENÇÃO.</span><span>Para viver. Para receber. Para lembrar.</span></div>
+</section>
+
+<!-- 02 · PORTFÓLIO -->
+<section class="portfolio section" id="projetos">
+  <div class="section-top reveal"><span class="eyebrow">02 / CENÁRIOS REAIS, MEMÓRIAS ÚNICAS</span><span class="eyebrow">PORTFÓLIO SELECIONADO</span></div>
+  <div class="portfolio-heading">
+    <h2 class="split"><span class="ln"><span>Cada Natal,</span></span><span class="ln"><span><em>um novo encanto.</em></span></span></h2>
+    <p class="reveal">Um passeio pelos detalhes que<br>fazem parte da nossa história.</p>
+  </div>
+  <div class="filters reveal" role="group" aria-label="Filtrar projetos">
+    <button class="active" data-filter="all" aria-pressed="true">Todos os encantos <span>06</span></button>
+    <button data-filter="arvore" aria-pressed="false">Árvores <span>04</span></button>
+    <button data-filter="guirlanda" aria-pressed="false">Guirlandas <span>01</span></button>
+    <button data-filter="detalhe" aria-pressed="false">Detalhes <span>01</span></button>
+    <i class="filter-ink" aria-hidden="true"></i>
+  </div>
+  <p class="sr-only" id="filter-status" aria-live="polite"></p>
+
+  <div class="project-grid">
+    <button class="project p1" data-category="arvore" data-index="0" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-03.webp" alt="Árvore com ramos vermelhos, ornamentos e iluminação dourada" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>01 — ÁRVORES</small><strong>Aconchego em cada luz</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project p2" data-category="arvore" data-index="1" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-02.webp" alt="Árvore natalina com esferas em vermelho, branco e tons metálicos" loading="lazy" width="640" height="1136"></span><span class="project-meta"><span><small>02 — ÁRVORES</small><strong>Clássico que surpreende</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project p3" data-category="guirlanda" data-index="2" data-cursor="Ver"><span class="project-image"><img src="assets/img/guirlanda-01.webp" alt="Guirlanda iluminada com grande laço vermelho em porta de madeira" loading="lazy" width="1280" height="1707"></span><span class="project-meta"><span><small>03 — GUIRLANDAS</small><strong>O primeiro abraço</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project p4" data-category="detalhe" data-index="3" data-cursor="Ver"><span class="project-image"><img src="assets/img/detalhe-01.webp" alt="Lustre decorado com ramos e grandes bolas natalinas vermelhas" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>04 — DETALHES</small><strong>Encanto em outra altura</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project p5" data-category="arvore" data-index="4" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-04.webp" alt="Árvore alta com grande laço vermelho, bolas brancas e elementos verdes" loading="lazy" width="900" height="1600"></span><span class="project-meta"><span><small>05 — ÁRVORES</small><strong>Presença que encanta</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project p6" data-category="arvore" data-index="5" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-01.webp" alt="Árvore clássica em vermelho com presentes e bonecos de Papai Noel" loading="lazy" width="720" height="1280"></span><span class="project-meta"><span><small>06 — ÁRVORES</small><strong>A alegria de estar junto</strong></span><span class="project-arrow">↗</span></span></button>
+  </div>
+  <div class="portfolio-note"><span>Fotografias de projetos Regis Motta.</span><a class="text-link" href="#seu-natal">Imagine o seu aqui <span>↗</span></a></div>
+</section>
+
+<!-- INTERLÚDIO: imagem que se expande dentro da tipografia -->
+<section class="interlude" aria-label="O encanto está nos detalhes">
+  <div class="interlude-stage">
+    <span class="eyebrow interlude-kicker">PARE UM INSTANTE. OLHE MAIS DE PERTO.</span>
+    <div class="interlude-words" aria-hidden="true">
+      <span class="iw iw-l">Não é só</span>
+      <span class="iw iw-r">sobre decorar.</span>
+    </div>
+    <div class="interlude-media">
+      <img src="assets/img/detalhe-01.webp" alt="Detalhes natalinos em um lustre iluminado" loading="lazy" width="1200" height="1600">
+      <div class="interlude-overlay"></div>
+    </div>
+    <div class="interlude-final">
+      <p>Não é só sobre decorar.<br>É sobre <em>fazer sentir.</em></p>
+      <svg class="large-star"><use href="#star"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · SERVIÇOS -->
+<section class="services section" id="servicos">
+  <div class="services-intro">
+    <span class="eyebrow reveal">03 / O QUE PODEMOS CRIAR</span>
+    <h2 class="split"><span class="ln"><span>O seu Natal.</span></span><span class="ln"><span><em>Do seu jeito.</em></span></span></h2>
+    <p class="reveal">Da primeira ideia ao último laço.<br>Um olhar completo para o seu espaço.</p>
+    <div class="services-visual reveal" aria-hidden="true">
+      <img class="sv active" src="assets/img/arvore-02.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/guirlanda-01.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/arvore-01.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/arvore-04.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/arvore-03.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/detalhe-01.webp" alt="" loading="lazy">
+      <span class="sv-count"><b id="sv-num">01</b> / 06</span>
+    </div>
+  </div>
+  <div class="service-list">
+    <details open class="reveal"><summary><span>01</span><h3>Decoração de interiores</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Salas, halls, mesas e cantinhos especiais. Criamos composições que conversam com o ambiente e acolhem quem chega.</p><span>CASAS · APARTAMENTOS · AMBIENTES INTERNOS</span></div></details>
+    <details class="reveal"><summary><span>02</span><h3>Encanto ao ar livre</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Fachadas, entradas e varandas com presença e harmonia. A experiência do Natal começa antes mesmo de abrir a porta.</p><span>ENTRADAS · FACHADAS · ÁREAS EXTERNAS</span></div></details>
+    <details class="reveal"><summary><span>03</span><h3>Peças com novas histórias</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Restauração de árvores, guirlandas e peças natalinas para renovar a beleza do que já faz parte da sua história.</p><span>RESTAURAÇÃO · RENOVAÇÃO · MEMÓRIA AFETIVA</span></div></details>
+    <details class="reveal"><summary><span>04</span><h3>Alugue a magia</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Árvores e composições decorativas por locação. Uma forma prática de viver um cenário especial, sem adquirir toda a estrutura.</p><span>ÁRVORES · GUIRLANDAS · COMPOSIÇÕES</span></div></details>
+    <details class="reveal"><summary><span>05</span><h3>Um projeto só seu</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Cores, proporções, texturas e elementos escolhidos a partir do seu espaço e da atmosfera que você deseja criar.</p><span>PERSONALIDADE · COMPOSIÇÃO · PROJETO SOB MEDIDA</span></div></details>
+    <details class="reveal"><summary><span>06</span><h3>Natal para receber mais</h3><i aria-hidden="true"></i></summary><div class="d-body"><p>Projetos para lojas, clínicas, escritórios e condomínios. Um convite para clientes, visitantes e moradores entrarem no clima de Natal.</p><span>EMPRESAS · COMÉRCIO · CONDOMÍNIOS</span></div></details>
+  </div>
+</section>
+
+<!-- 04 · SOBRE -->
+<section class="about section" id="sobre">
+  <div class="about-photo">
+    <div class="about-main reveal-clip"><img src="assets/img/regis-01.webp" alt="Regis Motta ao lado de uma árvore de Natal decorada" loading="lazy" width="750" height="750"></div>
+    <div class="about-second reveal-clip" data-speed="-0.15"><img src="assets/img/regis-02.webp" alt="Regis Motta ajustando os detalhes de uma árvore de Natal" loading="lazy" width="750" height="1333"></div>
+    <div class="experience"><strong><span id="years" data-to="23">23</span></strong><span>ANOS CRIANDO<br>MEMÓRIAS</span></div>
+  </div>
+  <div class="about-copy">
+    <span class="eyebrow reveal">04 / AS MÃOS POR TRÁS DO ENCANTO</span>
+    <h2 class="split"><span class="ln"><span>Um olhar sensível.</span></span><span class="ln"><span><em>Mil possibilidades.</em></span></span></h2>
+    <p class="reveal">Por trás de cada laço, há uma escolha. Por trás de cada composição, um olhar que entende que a beleza está no conjunto — e que cada detalhe importa.</p>
+    <p class="reveal">Regis Motta transforma ambientes com técnica, cuidado e paixão pelo Natal. Projetos internos e externos, pensados para a sua casa ou para a sua empresa.</p>
+    <div class="signature"><span>Regis Motta</span></div>
+    <span class="eyebrow reveal">DECORADOR · CRIADOR DE ATMOSFERAS</span>
+  </div>
+</section>
+
+<!-- 05 · PROCESSO -->
+<section class="process section">
+  <div class="section-top reveal"><span class="eyebrow">05 / DA IDEIA AO ENCANTAMENTO</span><svg class="mini-star"><use href="#star"/></svg></div>
+  <h2 class="split"><span class="ln"><span>A magia tem</span></span><span class="ln"><span><em>um começo simples.</em></span></span></h2>
+  <div class="steps">
+    <div class="steps-line" aria-hidden="true"><i></i></div>
+    <article><b class="step-num" aria-hidden="true">01</b><span>01 / CONVERSAR</span><h3>Conte o seu sonho.</h3><p>Você compartilha o espaço, as suas ideias e o que deseja sentir neste Natal.</p></article>
+    <article><b class="step-num" aria-hidden="true">02</b><span>02 / IMAGINAR</span><h3>Damos forma à ideia.</h3><p>Definimos o estilo, a composição e uma proposta personalizada para o ambiente.</p></article>
+    <article><b class="step-num" aria-hidden="true">03</b><span>03 / TRANSFORMAR</span><h3>O encanto acontece.</h3><p>Organizamos os elementos e executamos a montagem, com atenção a cada acabamento.</p></article>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact section" id="seu-natal">
+  <div class="contact-glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="contact-copy">
+    <span class="eyebrow reveal">O PRÓXIMO NATAL PODE SER O SEU.</span>
+    <h2 class="split"><span class="ln"><span>Vamos criar</span></span><span class="ln"><span>uma <em>memória</em></span></span><span class="ln"><span><em>inesquecível?</em></span></span></h2>
+    <p class="reveal">Conte um pouco sobre o seu espaço.<br>O primeiro passo é imaginar juntos.</p>
+    <svg class="contact-star" aria-hidden="true"><use href="#star"/></svg>
+  </div>
+  <form id="quote" class="quote reveal" novalidate>
+    <div class="form-progress"><span>SEU PROJETO COMEÇA AQUI</span><span id="step-label">01 / 02</span></div>
+    <div class="form-bar" aria-hidden="true"><i id="form-bar"></i></div>
+    <fieldset id="step1">
+      <legend>Onde a magia vai acontecer?</legend>
+      <div class="choice-grid">
+        <label><input type="radio" name="space" value="Minha casa" required checked><span><b>⌂</b>Na minha casa<small>Um Natal para viver junto</small></span></label>
+        <label><input type="radio" name="space" value="Minha empresa"><span><b>◇</b>Na minha empresa<small>Um Natal para receber</small></span></label>
+      </div>
+      <label class="field">O que você tem em mente?
+        <select name="service"><option>Decoração interna</option><option>Decoração externa</option><option>Restauração de peças</option><option>Aluguel de decoração</option><option>Projeto personalizado</option><option>Decoração de condomínio</option></select>
+      </label>
+      <button class="button gold magnetic" type="button" id="next"><span class="button-label">Continuar meu projeto</span> <span class="button-icon">→</span></button>
+      <p class="form-note">Cada ambiente tem uma história. Vamos conhecer a sua.</p>
+    </fieldset>
+    <fieldset id="step2" hidden>
+      <legend>Vamos conhecer o seu espaço.</legend>
+      <label class="field">Seu nome<input name="name" autocomplete="given-name" placeholder="Como podemos chamar você?" maxlength="100" required disabled></label>
+      <label class="field">Cidade e bairro<input name="city" autocomplete="address-level2" placeholder="Onde fica o ambiente?" maxlength="160" required disabled></label>
+      <label class="field">Conte a sua ideia <span>(opcional)</span><textarea name="message" rows="3" placeholder="Cores, tamanho do espaço, peças que já tem…" maxlength="1500" disabled></textarea></label>
+      <button class="button gold magnetic" type="submit"><span class="button-label" id="submit-label">Preparar meu pedido</span> <span class="button-icon">↗</span></button>
+      <button class="back" type="button" id="back">← Voltar</button>
+      <p class="form-note" id="step2-note">Seu resumo será preparado aqui. Nenhum dado é enviado nesta etapa.</p>
+    </fieldset>
+    <div id="quote-result" hidden aria-live="polite">
+      <svg class="result-star"><use href="#star"/></svg>
+      <h3>Sua ideia ganhou forma.</h3>
+      <p>Confira e copie o resumo do seu projeto.</p>
+      <textarea id="summary" rows="7" readonly aria-label="Resumo do pedido"></textarea>
+      <button type="button" class="button gold" id="copy"><span class="button-label">Copiar meu pedido</span> <span class="button-icon">↗</span></button>
+      <a class="button ghost" id="whatsapp" href="#" target="_blank" rel="noopener" hidden><span class="button-label">Enviar pelo WhatsApp</span> <span class="button-icon">↗</span></a>
+      <p class="form-note" id="copy-status">O contato do ateliê será disponibilizado em breve. Este pedido ainda não foi enviado.</p>
+      <button class="back" type="button" id="edit">← Editar meu pedido</button>
+    </div>
+  </form>
+</section>
+
+<!-- FAQ -->
+<section class="faq section">
+  <div>
+    <span class="eyebrow reveal">ANTES DO PRIMEIRO LAÇO</span>
+    <h2 class="split"><span class="ln"><span>Algumas respostas.</span></span><span class="ln"><span><em>Mais tranquilidade.</em></span></span></h2>
+  </div>
+  <div class="faq-list">
+    <details class="reveal"><summary>Vocês atendem residências e empresas?<i aria-hidden="true"></i></summary><div class="d-body"><p>Sim. Os projetos atendem casas, apartamentos, lojas, clínicas, escritórios e condomínios, sempre considerando as características de cada espaço.</p></div></details>
+    <details class="reveal"><summary>Posso renovar a decoração que já tenho?<i aria-hidden="true"></i></summary><div class="d-body"><p>Sim. A restauração de árvores, guirlandas e peças natalinas devolve beleza aos elementos que já fazem parte da sua história. A proposta é definida após conhecer as peças.</p></div></details>
+    <details class="reveal"><summary>É possível alugar a decoração?<i aria-hidden="true"></i></summary><div class="d-body"><p>Sim. Há opções de aluguel de árvores, guirlandas e composições. A seleção dos elementos e as condições são definidas na proposta de cada projeto.</p></div></details>
+    <details class="reveal"><summary>Com quanto tempo devo me planejar?<i aria-hidden="true"></i></summary><div class="d-body"><p>Recomendamos contato com 30 a 60 dias de antecedência, especialmente para projetos maiores ou para novembro e dezembro. As datas dependem da disponibilidade da agenda.</p></div></details>
+    <details class="reveal"><summary>Como é definido o orçamento?<i aria-hidden="true"></i></summary><div class="d-body"><p>A proposta é personalizada. Informações sobre o espaço, fotos do ambiente e o serviço desejado ajudam a definir composição, valores e prazos.</p></div></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <p>O Natal passa.<br><em>O que a gente sente, fica.</em></p>
+    <div class="footer-links">
+      <a href="#seu-natal" class="button gold magnetic"><span class="button-label">Comece seu projeto</span> <span class="button-icon">↗</span></a>
+      <a href="#" id="instagram" class="text-link" target="_blank" rel="noopener" hidden>Instagram <span>↗</span></a>
+    </div>
+    <a href="#inicio" class="to-top magnetic" aria-label="Voltar ao início">↑</a>
+  </div>
+  <div class="footer-mark" aria-hidden="true"><span>Regis Motta</span></div>
+  <div class="footer-bottom"><span>© <span id="year">2026</span> Regis Motta.</span><span>FEITO DE DETALHES. FEITO PARA SENTIR.</span><span>DECORAÇÕES NATALINAS</span></div>
+</footer>
+
+<dialog id="gallery" aria-labelledby="gallery-title">
+  <button class="dialog-close" aria-label="Fechar projeto"><i></i><i></i></button>
+  <div class="gallery-picture"><img id="gallery-image" src="assets/img/arvore-03.webp" alt=""></div>
+  <div class="gallery-copy">
+    <span class="gallery-big" id="gallery-big" aria-hidden="true">01</span>
+    <span id="gallery-count" class="eyebrow"></span>
+    <h2 id="gallery-title"></h2>
+    <p id="gallery-description"></p>
+    <a class="button gold" href="#seu-natal" id="gallery-cta"><span class="button-label">Quero imaginar o meu</span> <span class="button-icon">↗</span></a>
+    <div class="gallery-controls"><button id="previous" aria-label="Projeto anterior">←</button><span>PROJETOS REGIS MOTTA</span><button id="following" aria-label="Próximo projeto">→</button></div>
+  </div>
+</dialog>
+
+</body>
+</html>
