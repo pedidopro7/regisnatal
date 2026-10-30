@@ -11,7 +11,7 @@
 <meta property="og:image" content="assets/img/og.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%233a0f19'/%3E%3Cpath d='M50 14c3 22 14 33 36 36-22 3-33 14-36 36-3-22-14-33-36-36 22-3 33-14 36-36z' fill='%23d9b977'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/logo-regis.png">
 <link rel="preload" as="font" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/arvore-03.webp" fetchpriority="high">
@@ -44,10 +44,9 @@
 </div>
 
 <div class="progress" aria-hidden="true"><i></i></div>
-<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"><span class="cursor-label">Ver</span></div></div>
 
 <header id="header">
-  <a class="brand" href="#inicio" aria-label="Regis Motta — início">Regis Motta<span>DECORAÇÕES NATALINAS</span></a>
+  <a class="brand" href="#inicio" aria-label="Regis Motta — início"><img class="brand-logo" src="assets/img/logo-regis.png" alt="" width="44" height="44"><span class="brand-text">Regis Motta<span>DECORAÇÕES NATALINAS</span></span></a>
   <nav aria-label="Principal" id="nav">
     <a href="#universo"><span class="nav-i">01</span>O nosso olhar</a>
     <a href="#projetos"><span class="nav-i">02</span>Projetos</a>
@@ -137,23 +136,55 @@
     <p class="reveal">Um passeio pelos detalhes que<br>fazem parte da nossa história.</p>
   </div>
   <div class="filters reveal" role="group" aria-label="Filtrar projetos">
-    <button class="active" data-filter="all" aria-pressed="true">Todos os encantos <span>06</span></button>
+    <button class="active" data-filter="all" aria-pressed="true">Todos os encantos <span>12</span></button>
     <button data-filter="arvore" aria-pressed="false">Árvores <span>04</span></button>
-    <button data-filter="guirlanda" aria-pressed="false">Guirlandas <span>01</span></button>
-    <button data-filter="detalhe" aria-pressed="false">Detalhes <span>01</span></button>
+    <button data-filter="guirlanda" aria-pressed="false">Guirlandas <span>04</span></button>
+    <button data-filter="detalhe" aria-pressed="false">Detalhes <span>02</span></button>
+    <button data-filter="externo" aria-pressed="false">Áreas externas <span>02</span></button>
     <i class="filter-ink" aria-hidden="true"></i>
   </div>
   <p class="sr-only" id="filter-status" aria-live="polite"></p>
 
   <div class="project-grid">
-    <button class="project p1" data-category="arvore" data-index="0" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-03.webp" alt="Árvore com ramos vermelhos, ornamentos e iluminação dourada" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>01 — ÁRVORES</small><strong>Aconchego em cada luz</strong></span><span class="project-arrow">↗</span></span></button>
-    <button class="project p2" data-category="arvore" data-index="1" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-02.webp" alt="Árvore natalina com esferas em vermelho, branco e tons metálicos" loading="lazy" width="640" height="1136"></span><span class="project-meta"><span><small>02 — ÁRVORES</small><strong>Clássico que surpreende</strong></span><span class="project-arrow">↗</span></span></button>
-    <button class="project p3" data-category="guirlanda" data-index="2" data-cursor="Ver"><span class="project-image"><img src="assets/img/guirlanda-01.webp" alt="Guirlanda iluminada com grande laço vermelho em porta de madeira" loading="lazy" width="1280" height="1707"></span><span class="project-meta"><span><small>03 — GUIRLANDAS</small><strong>O primeiro abraço</strong></span><span class="project-arrow">↗</span></span></button>
-    <button class="project p4" data-category="detalhe" data-index="3" data-cursor="Ver"><span class="project-image"><img src="assets/img/detalhe-01.webp" alt="Lustre decorado com ramos e grandes bolas natalinas vermelhas" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>04 — DETALHES</small><strong>Encanto em outra altura</strong></span><span class="project-arrow">↗</span></span></button>
-    <button class="project p5" data-category="arvore" data-index="4" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-04.webp" alt="Árvore alta com grande laço vermelho, bolas brancas e elementos verdes" loading="lazy" width="900" height="1600"></span><span class="project-meta"><span><small>05 — ÁRVORES</small><strong>Presença que encanta</strong></span><span class="project-arrow">↗</span></span></button>
-    <button class="project p6" data-category="arvore" data-index="5" data-cursor="Ver"><span class="project-image"><img src="assets/img/arvore-01.webp" alt="Árvore clássica em vermelho com presentes e bonecos de Papai Noel" loading="lazy" width="720" height="1280"></span><span class="project-meta"><span><small>06 — ÁRVORES</small><strong>A alegria de estar junto</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="arvore" data-index="0"><span class="project-image"><img src="assets/img/arvore-03.webp" alt="Árvore com ramos vermelhos, ornamentos e iluminação dourada" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>01 — ÁRVORES</small><strong>Aconchego em cada luz</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="arvore" data-index="1"><span class="project-image"><img src="assets/img/arvore-02.webp" alt="Árvore natalina com esferas em vermelho, branco e tons metálicos" loading="lazy" width="640" height="1136"></span><span class="project-meta"><span><small>02 — ÁRVORES</small><strong>Clássico que surpreende</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="guirlanda" data-index="2"><span class="project-image"><img src="assets/img/guirlanda-01.webp" alt="Guirlanda iluminada com grande laço vermelho em porta de madeira" loading="lazy" width="1280" height="1707"></span><span class="project-meta"><span><small>03 — GUIRLANDAS</small><strong>O primeiro abraço</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="detalhe" data-index="3"><span class="project-image"><img src="assets/img/detalhe-01.webp" alt="Lustre decorado com ramos e grandes bolas natalinas vermelhas" loading="lazy" width="1200" height="1600"></span><span class="project-meta"><span><small>04 — DETALHES</small><strong>Encanto em outra altura</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="arvore" data-index="4"><span class="project-image"><img src="assets/img/arvore-04.webp" alt="Árvore alta com grande laço vermelho, bolas brancas e elementos verdes" loading="lazy" width="900" height="1600"></span><span class="project-meta"><span><small>05 — ÁRVORES</small><strong>Presença que encanta</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="arvore" data-index="5"><span class="project-image"><img src="assets/img/arvore-01.webp" alt="Árvore clássica em vermelho com presentes e bonecos de Papai Noel" loading="lazy" width="720" height="1280"></span><span class="project-meta"><span><small>06 — ÁRVORES</small><strong>A alegria de estar junto</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="guirlanda" data-index="6"><span class="project-image"><img src="assets/img/guirlanda-02.webp" alt="Guirlanda com flores vermelhas e Papai Noel ao centro sobre parede de madeira" loading="lazy" width="1010" height="1280"></span><span class="project-meta"><span><small>07 — GUIRLANDAS</small><strong>Boas-vindas em vermelho</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="guirlanda" data-index="7"><span class="project-image"><img src="assets/img/guirlanda-03.webp" alt="Guirlanda com grande laço de veludo vermelho, esferas e Papai Noel" loading="lazy" width="973" height="1222"></span><span class="project-meta"><span><small>08 — GUIRLANDAS</small><strong>O laço que abraça</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="detalhe" data-index="8"><span class="project-image"><img src="assets/img/arranjo-01.webp" alt="Arranjo natalino com ramos, flores vermelhas e velas sobre aparador de vidro" loading="lazy" width="959" height="1280"></span><span class="project-meta"><span><small>09 — DETALHES</small><strong>Encanto sobre o aparador</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="externo" data-index="9"><span class="project-image"><img src="assets/img/externo-01.webp" alt="Árvore e cadeiras decoradas com laços listrados em área externa" loading="lazy" width="1242" height="970"></span><span class="project-meta"><span><small>10 — ÁREAS EXTERNAS</small><strong>Celebração ao ar livre</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="guirlanda" data-index="10"><span class="project-image"><img src="assets/img/guirlanda-04.webp" alt="Guirlanda com letras douradas Ho Ho Ho, laços listrados e ursinho com tambor" loading="lazy" width="960" height="1280"></span><span class="project-meta"><span><small>11 — GUIRLANDAS</small><strong>Alegria em letras douradas</strong></span><span class="project-arrow">↗</span></span></button>
+    <button class="project" data-category="externo" data-index="11"><span class="project-image"><img src="assets/img/externo-02.webp" alt="Jardim à noite com troncos de árvores envolvidos por luzes quentes" loading="lazy" width="1224" height="608"></span><span class="project-meta"><span><small>12 — ÁREAS EXTERNAS</small><strong>O jardim que se acende</strong></span><span class="project-arrow">↗</span></span></button>
   </div>
   <div class="portfolio-note"><span>Fotografias de projetos Regis Motta.</span><a class="text-link" href="#seu-natal">Imagine o seu aqui <span>↗</span></a></div>
+</section>
+
+<!-- ESTILOS: rolagem horizontal -->
+<section class="styles" id="estilos" aria-labelledby="styles-title">
+  <div class="styles-pin">
+    <div class="styles-track">
+      <div class="styles-intro">
+        <span class="eyebrow">UMA PALETA PARA CADA HISTÓRIA</span>
+        <h2 id="styles-title">Um Natal<br><em>em cada tom.</em></h2>
+        <p>Do dourado ao prateado, do clássico ao floral. Cada árvore nasce da personalidade de quem vive o espaço.</p>
+        <span class="styles-hint" aria-hidden="true">Deslize <i>→</i></span>
+      </div>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-dourado.webp" alt="Árvore de Natal no estilo Dourado, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>01</span>Dourado</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-rose.webp" alt="Árvore de Natal no estilo Rosé e ouro, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>02</span>Rosé &amp; ouro</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-marfim.webp" alt="Árvore de Natal no estilo Marfim e ouro, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>03</span>Marfim &amp; ouro</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-prata.webp" alt="Árvore de Natal no estilo Prata, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>04</span>Prata</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-champanhe.webp" alt="Árvore de Natal no estilo Champanhe, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>05</span>Champanhe</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-classico.webp" alt="Árvore de Natal no estilo Vermelho clássico, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>06</span>Vermelho clássico</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-bordo.webp" alt="Árvore de Natal no estilo Bordô e poinsétias, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>07</span>Bordô &amp; poinsétias</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-candy.webp" alt="Árvore de Natal no estilo Doce Natal, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>08</span>Doce Natal</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-floral.webp" alt="Árvore de Natal no estilo Floral, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>09</span>Floral</figcaption></figure>
+      <figure class="style-card"><div class="style-img"><img src="assets/img/estilo-tradicional.webp" alt="Árvore de Natal no estilo Tradicional, criada por Regis Motta" loading="lazy" width="960" height="1280"></div><figcaption><span>10</span>Tradicional</figcaption></figure>
+    </div>
+    <div class="styles-progress" aria-hidden="true"><i></i></div>
+  </div>
 </section>
 
 <!-- INTERLÚDIO: imagem que se expande dentro da tipografia -->
@@ -183,7 +214,7 @@
     <p class="reveal">Da primeira ideia ao último laço.<br>Um olhar completo para o seu espaço.</p>
     <div class="services-visual reveal" aria-hidden="true">
       <img class="sv active" src="assets/img/arvore-02.webp" alt="" loading="lazy">
-      <img class="sv" src="assets/img/guirlanda-01.webp" alt="" loading="lazy">
+      <img class="sv" src="assets/img/externo-02.webp" alt="" loading="lazy">
       <img class="sv" src="assets/img/arvore-01.webp" alt="" loading="lazy">
       <img class="sv" src="assets/img/arvore-04.webp" alt="" loading="lazy">
       <img class="sv" src="assets/img/arvore-03.webp" alt="" loading="lazy">
@@ -296,10 +327,11 @@
 
 <footer>
   <div class="footer-top">
+    <img class="footer-logo" src="assets/img/logo-regis.png" alt="Logotipo Regis" width="96" height="96" loading="lazy">
     <p>O Natal passa.<br><em>O que a gente sente, fica.</em></p>
     <div class="footer-links">
       <a href="#seu-natal" class="button gold magnetic"><span class="button-label">Comece seu projeto</span> <span class="button-icon">↗</span></a>
-      <a href="#" id="instagram" class="text-link" target="_blank" rel="noopener" hidden>Instagram <span>↗</span></a>
+      <a href="#" id="instagram" class="text-link" target="_blank" rel="noopener" hidden><b id="instagram-label">Instagram</b> <span>↗</span></a>
     </div>
     <a href="#inicio" class="to-top magnetic" aria-label="Voltar ao início">↑</a>
   </div>

@@ -6,5 +6,5 @@
  */
 window.REGIS_CONFIG = {
   whatsapp: '',
-  instagram: ''
+  instagram: 'https://www.instagram.com/regisdecoracao/'
 };

@@ -26,9 +26,11 @@ window.REGIS_CONFIG = {
 ## Experiência
 - Abertura com contador e cortina
 - Hero com foto em arco, luzes piscando, partículas douradas que reagem ao cursor, selo giratório, interruptor de luzes e som de sinos (“Noite Feliz”, domínio público, sintetizado)
-- Rolagem suave (Lenis), cursor personalizado, botões magnéticos e barra de progresso
+- Rolagem suave (Lenis), cursor normal com rastro sutil de brilho dourado no hero, botões magnéticos e barra de progresso
 - Títulos revelados linha a linha; texto que “acende” palavra por palavra
-- Portfólio editorial com revelação das imagens, parallax, filtros e galeria em tela cheia (teclado e gesto de deslizar)
+- Portfólio editorial com 12 projetos (árvores, guirlandas, detalhes e áreas externas), revelação das imagens, parallax, filtros e galeria em tela cheia (teclado e gesto de deslizar)
+- “Um Natal em cada tom”: 10 estilos de árvore em rolagem horizontal fixa (desktop) e carrossel com deslize (celular)
+- Logotipo do Regis no cabeçalho, no rodapé e como favicon
 - Interlúdio fixo: a foto se expande de um arco até a tela inteira
 - Serviços em acordeão com imagem que troca a cada serviço
 - Contador animado dos 23 anos, assinatura desenhada, linha do processo que se desenha na rolagem
@@ -47,5 +49,5 @@ docs/CONTEXTO_ORIGINAL.md
 ```
 
 ## Pendências antes de entregar ao cliente
-- Informar WhatsApp e Instagram reais em `config.js`
+- Informar o WhatsApp real em `config.js` (Instagram já configurado como @regisdecoracao, visto no print enviado pelo cliente — confirmar)
 - Confirmar os 23 anos de experiência, a área de atendimento e os direitos de uso das fotos

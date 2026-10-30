@@ -16,6 +16,18 @@ window.__regisReady = true;
 if (!motionOK) html.classList.remove('has-motion');
 if (!motionOK) html.classList.add('no-motion');
 
+/* ---------- carregamento das fotos ----------
+   Imagens dentro de elementos recortados (clip-path) não disparam o lazy nativo:
+   observamos o card e liberamos a foto quando ele se aproxima da tela. */
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    $$('img[loading="lazy"]', en.target).forEach(img => { img.loading = 'eager'; });
+    io.unobserve(en.target);
+  }), { rootMargin: '900px 900px' });
+  $$('.project, .style-card, .intro-collage, .about-photo, .services-visual, .interlude, #gallery').forEach(el => io.observe(el));
+}
+
 /* ---------- rolagem suave ---------- */
 let lenis = null;
 if (motionOK) {
@@ -106,6 +118,8 @@ const canvas = $('#sparkles');
 const ctx = canvas.getContext('2d');
 let cw = 0, ch = 0, frame = 0, particles = [], heroVisible = true;
 const mouse = { x: -9999, y: -9999 };
+const trail = [];
+let lastTrail = { x: 0, y: 0 };
 function resizeCanvas() {
   const r = hero.getBoundingClientRect();
   cw = r.width; ch = r.height;
@@ -145,6 +159,13 @@ function animate(time) {
     if (p.glint) drawGlint(p.x, p.y, p.r * 3.2, a);
     else { ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); }
   }
+  for (let i = trail.length - 1; i >= 0; i--) {
+    const t = trail[i];
+    t.x += t.vx; t.y += t.vy; t.vy += .015; t.life -= .018;
+    if (t.life <= 0) { trail.splice(i, 1); continue; }
+    if (t.glint) drawGlint(t.x, t.y, t.r * 3 * t.life + .6, t.life * .9 * dim);
+    else { ctx.globalAlpha = t.life * .8 * dim; ctx.beginPath(); ctx.arc(t.x, t.y, t.r * t.life, 0, Math.PI * 2); ctx.fill(); }
+  }
   frame = requestAnimationFrame(animate);
 }
 function resumeParticles() { if (!frame && !reducedMotion.matches && heroVisible && !document.hidden) frame = requestAnimationFrame(animate); }
@@ -152,28 +173,17 @@ if (ctx) {
   resizeCanvas();
   let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resizeCanvas, 150); });
   new IntersectionObserver(e => { heroVisible = e[0].isIntersecting; resumeParticles(); }).observe(hero);
-  hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  hero.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    // rastro sutil de brilho dourado (só no hero, cursor do sistema continua normal)
+    if (e.pointerType === 'mouse' && !reducedMotion.matches && Math.hypot(mouse.x - lastTrail.x, mouse.y - lastTrail.y) > 14 && trail.length < 70) {
+      lastTrail = { x: mouse.x, y: mouse.y };
+      trail.push({ x: mouse.x, y: mouse.y, vx: (Math.random() - .5) * .6, vy: Math.random() * .3 + .1, r: Math.random() * 1.4 + .6, life: 1, glint: Math.random() < .35 });
+    }
+  });
   hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
   resumeParticles();
   reducedMotion.addEventListener?.('change', resumeParticles);
-}
-
-/* ---------- cursor personalizado ---------- */
-const cursor = $('.cursor');
-if (motionOK && finePointer.matches) {
-  html.classList.add('has-cursor');
-  const dot = $('.cursor-dot'), ring = $('.cursor-ring'), label = $('.cursor-label');
-  const dx = gsap.quickTo(dot, 'x', { duration: .12, ease: 'power3' }), dy = gsap.quickTo(dot, 'y', { duration: .12, ease: 'power3' });
-  const rx = gsap.quickTo(ring, 'x', { duration: .5, ease: 'power3' }), ry = gsap.quickTo(ring, 'y', { duration: .5, ease: 'power3' });
-  addEventListener('pointermove', e => { dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); cursor.classList.remove('is-hidden'); });
-  document.addEventListener('pointerleave', () => cursor.classList.add('is-hidden'));
-  document.addEventListener('pointerover', e => {
-    const view = e.target.closest('[data-cursor]');
-    const link = e.target.closest('a, button, summary, label, select, input, textarea');
-    cursor.classList.toggle('is-view', !!view);
-    cursor.classList.toggle('is-link', !view && !!link);
-    if (view) label.textContent = view.dataset.cursor;
-  });
 }
 
 /* ---------- botões magnéticos ---------- */
@@ -261,7 +271,13 @@ const projects = [
   { image: 'guirlanda-01.webp', title: 'O primeiro abraço', description: 'O laço vermelho anuncia a chegada do Natal. Luzes delicadas e elementos natalinos transformam a porta em um gesto de boas-vindas.', alt: 'Guirlanda natalina iluminada sobre porta de madeira' },
   { image: 'detalhe-01.webp', title: 'Encanto em outra altura', description: 'A decoração também acontece acima do olhar. Ramos e esferas vermelhas se integram ao lustre, ampliando a atmosfera natalina.', alt: 'Lustre com enfeites e bolas vermelhas suspensas' },
   { image: 'arvore-04.webp', title: 'Presença que encanta', description: 'Um grande laço, contrastes de verde e vermelho e esferas claras. Uma composição vertical que transforma a percepção do ambiente.', alt: 'Árvore com grande laço vermelho e bolas brancas' },
-  { image: 'arvore-01.webp', title: 'A alegria de estar junto', description: 'Presentes, personagens e uma árvore em vermelho. Uma cena que traz de volta a alegria de esperar pelo Natal.', alt: 'Árvore vermelha com presentes e personagens natalinos' }
+  { image: 'arvore-01.webp', title: 'A alegria de estar junto', description: 'Presentes, personagens e uma árvore em vermelho. Uma cena que traz de volta a alegria de esperar pelo Natal.', alt: 'Árvore vermelha com presentes e personagens natalinos' },
+  { image: 'guirlanda-02.webp', title: 'Boas-vindas em vermelho', description: 'Flores, frutos e um Papai Noel ao centro. Uma guirlanda generosa que transforma a entrada em um convite.', alt: 'Guirlanda com flores vermelhas e Papai Noel ao centro' },
+  { image: 'guirlanda-03.webp', title: 'O laço que abraça', description: 'Um grande laço de veludo, esferas brilhantes e ramos vermelhos. Volume e presença desde a porta.', alt: 'Guirlanda com grande laço de veludo vermelho' },
+  { image: 'arranjo-01.webp', title: 'Encanto sobre o aparador', description: 'Ramos, flores vermelhas e velas em um arranjo baixo e elegante. O Natal também mora nos cantos da casa.', alt: 'Arranjo natalino sobre aparador de vidro' },
+  { image: 'externo-01.webp', title: 'Celebração ao ar livre', description: 'Árvore e cadeiras vestidas com laços listrados. Um cenário completo para receber em grande estilo.', alt: 'Árvore e cadeiras decoradas em área externa' },
+  { image: 'guirlanda-04.webp', title: 'Alegria em letras douradas', description: 'Ho-ho-ho dourado, laços listrados e um ursinho tocando tambor. Uma guirlanda que sorri para quem chega.', alt: 'Guirlanda com letras douradas Ho Ho Ho' },
+  { image: 'externo-02.webp', title: 'O jardim que se acende', description: 'Troncos envolvidos por luzes quentes transformam a área externa quando o dia termina.', alt: 'Jardim iluminado à noite' }
 ];
 let currentProject = 0;
 const gallery = $('#gallery');
@@ -274,7 +290,7 @@ function showProject(index, animate = true) {
     gImg.src = 'assets/img/' + p.image; gImg.alt = p.alt;
     $('#gallery-title').textContent = p.title;
     $('#gallery-description').textContent = p.description;
-    $('#gallery-count').textContent = `${n} / 06 — PORTFÓLIO REGIS MOTTA`;
+    $('#gallery-count').textContent = `${n} / ${String(projects.length).padStart(2, '0')} — PORTFÓLIO REGIS MOTTA`;
     $('#gallery-big').textContent = n;
     requestAnimationFrame(() => gImg.classList.remove('swap'));
     if (motionOK) gsap.fromTo(['#gallery-count', '#gallery-title', '#gallery-description'], { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .7, stagger: .06, ease: 'expo.out' });
@@ -316,7 +332,11 @@ const form = $('#quote');
 const hasWhats = /^\d{10,15}$/.test(String(CONFIG.whatsapp || '').replace(/\D/g, '')) && String(CONFIG.whatsapp).replace(/\D/g, '').length >= 10;
 const whatsNumber = String(CONFIG.whatsapp || '').replace(/\D/g, '');
 if (hasWhats) $('#step2-note').textContent = 'Seu resumo será preparado aqui. Você confere tudo antes de enviar pelo WhatsApp.';
-if (CONFIG.instagram) { const ig = $('#instagram'); ig.href = CONFIG.instagram; ig.hidden = false; }
+if (CONFIG.instagram) {
+  const ig = $('#instagram'); ig.href = CONFIG.instagram; ig.hidden = false;
+  const handle = (CONFIG.instagram.match(/instagram\.com\/([^/?#]+)/) || [])[1];
+  if (handle) $('#instagram-label').textContent = '@' + handle;
+}
 function setStep(step) {
   $('#step1').hidden = step !== 1;
   $('#step2').hidden = step !== 2;
@@ -524,6 +544,24 @@ function runChoreography() {
       .to(meta, { opacity: 1, y: 0, duration: 1, ease }, '<.6');
     gsap.fromTo(img, { yPercent: -12 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
+
+  /* estilos: rolagem horizontal fixa (desktop) / carrossel nativo (celular) */
+  const stylesSec = $('.styles');
+  const mmStyles = gsap.matchMedia();
+  mmStyles.add('(min-width: 821px)', () => {
+    const track = $('.styles-track');
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    const tw = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.styles-pin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
+      onUpdate: self => gsap.set('.styles-progress i', { scaleX: self.progress }) } });
+    $$('.style-img img').forEach(img => gsap.fromTo(img, { scale: 1.25 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: img.closest('.style-card'), containerAnimation: tw, start: 'left right', end: 'center center', scrub: true } }));
+    return () => gsap.set(track, { clearProps: 'transform' });
+  });
+  mmStyles.add('(max-width: 820px)', () => {
+    stylesSec.classList.add('is-native');
+    gsap.from('.style-card', { opacity: 0, x: 60, duration: 1.2, stagger: .08, ease, scrollTrigger: { trigger: stylesSec, start: 'top 75%', once: true } });
+    return () => stylesSec.classList.remove('is-native');
+  });
+  gsap.from('.styles-intro > *', { opacity: 0, y: 40, duration: 1.2, stagger: .1, ease, scrollTrigger: { trigger: stylesSec, start: 'top 70%', once: true } });
 
   /* interlúdio: imagem se expande dentro da tipografia */
   const mm = gsap.matchMedia();
